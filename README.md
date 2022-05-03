@@ -8,7 +8,11 @@ Assumes that you've cloned this repository locally.
 Build the image.
 
 ```bash
-docker build --tag deid:latest .
+docker build \
+        --build-arg PERL_VERSION=5.30 \
+        --tag deid:1.1 \
+        --tag deid:latest \
+        .
 ```
 
 ### Terminal
@@ -34,3 +38,4 @@ make run
 ## References
 
 - https://physionet.org/content/deid/1.1/
+- https://github.com/craibuc/docker-deid
