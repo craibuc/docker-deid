@@ -3,10 +3,11 @@ DEID_VERSION=1.1
 PERL_VERSION=5.30
 
 build:
-	@echo "Building image '${DEID_NAME}:${PERL_VERSION}_${DEID_VERSION}'..."
+	@echo "Building image '${DEID_NAME}:${DEID_VERSION}'..."
 
 	docker build \
-		--tag ${DEID_NAME}:${PERL_VERSION}_${DEID_VERSION} \
+		--build-arg PERL_VERSION=${PERL_VERSION} \
+		--tag ${DEID_NAME}:${DEID_VERSION} \
 		--tag ${DEID_NAME}:latest \
 		.
 
