@@ -11,7 +11,12 @@ build:
 		--tag ${DEID_NAME}:latest \
 		.
 
+tty:
+	@echo "Creating terminal session..."
+
+	docker run -it --rm -v ${PWD}/data:/app/data ${DEID_NAME}:latest /bin/sh
+
 run:
 	@echo "Running image '$(DEID_NAME):latest'..."
 
-	docker run -it --rm ${DEID_NAME}:latest
+	docker run --rm -v ${PWD}/data:/app/data ${DEID_NAME}:latest
